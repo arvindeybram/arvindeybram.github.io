@@ -1,36 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bamboozled</title>
-<style>
-    body {
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arvind Abraham</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+        font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
-        background-color: #333;
-        color: white;
-        font-family: Arial, sans-serif;
-        font-size: 2em;
+            background: linear-gradient(45deg, #e66465, #9198e5, #3e5151, #decba4);
+        background-size: 200% 200%;
+        animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* Make it round */
+            margin-right: 20px;
+            overflow: hidden; /* Ensure the image is fully visible */
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Prevent image distortion */
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        a {
+            color: blue;
+            text-decoration: none; /* Optional: Removes underline from links */
+        }
+        a:hover {
+            text-decoration: underline; /* Optional: Underline on hover */
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+    .languages-tools {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        perspective: 1000px;
     }
 
-    h1 {
-        background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-align: center;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    .tool {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: rotate 10s linear infinite;
+        transform-style: preserve-3d;
     }
-</style>
+
+    .tool img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .tool:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes rotate {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
+
+        mark {
+            background-color: rgba(255, 255, 0, 0.5);
+            color: black;
+            font-weight: bold;
+        }
+        .publication {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #007bff; /* Blue border on the left */
+        }
+
+        .publication a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .publication a:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        .publication-date {
+            font-style: italic;
+            color: #6c757d; /* Gray text color */
+        }
+
+        .abstract {
+            margin-top: 5px;
+            color: #495057; /* Dark text color */
+        }
+
+        .languages-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tool img {
+            width: 50px; /* Set the desired width */
+            height: 50px; /* Set the desired height */
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+
+        /* Optional: Add more styling as needed */
+        .tool {
+            margin-bottom: 10px;
+        }
+
+        .current-projects {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .current-projects li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .current-projects a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .current-projects a:hover {
+            text-decoration: underline;
+        }
+
+        /* Job Box */
+        .job-box {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        /* Job Title */
+        .job-box h3 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .job-box a {
+            color: #007bff; /* Blue link color */
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        /* Company Name */
+        .job-box h4 {
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Job Description */
+        .job-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+
+        .job-box ul li:before {
+            content: "\2022";
+            color: #333;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .awards {
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .awards h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .award {
+            margin-bottom: 10px;
+        }
+
+        .award h3 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .award p {
+            margin: 5px 0;
+        }
+
+
+        .languages-tools {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tool {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: moveChain 4s ease infinite;
+        }
+
+        @keyframes moveChain {
+            0%, 100% { transform: translateY(110); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tool img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    </style>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </head>
 <body>
-    <h1>You Have Been Bamboozled!!</h1>
+
+<div class="container">
+    <div class="profile-image">
+        <img src="https://avatars.githubusercontent.com/u/25103343?v=4" alt="Profile Picture">
+    </div>
+    <div>
+
+        <h1>Hey! Hey! Hey! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"></h1>
+        <p>I'm <a href="https://www.linkedin.com/in/arvindabraham/">Arvind Abraham</a>, a Senior Software Engineer at <a href="https://www.zscaler.com">Zscaler</a>.</p>
+        <p>With 6 years of experience working for a product-based <a href="https://www.kayzen.io">Kayzen</a>, a German AdTech startup in a small team and MNC's like <a href="https://www.zscaler.com">Zscaler</a> and <a href="https://www.nokia.com">Nokia Alcatel Lucent</a>, I have been lucky to work on multiple domains with some of the smartest people in the industry.</p>
+
+        <h2>Tech Stacks</h2>
+        <div class="languages-tools">
+            <div class="tool">
+                <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" alt="Python">
+            </div>
+            <div class="tool">
+                <img src="https://toppng.com/uploads/preview/apache-kafka-logo-11563428199khgq3xvb4q.png" alt="Kafka">
+            </div>
+            <div class="tool">
+                <img src="https://iconape.com/wp-content/png_logo_vector/apache-spark-logo.png" alt="Apache Spark">
+            </div>
+            <div class="tool">
+                <img src="https://banner2.cleanpng.com/20190619/oyo/kisspng-apache-airflow-workflow-orchestration-directed-acy-ampquotamsterda-5d0ade8e557994.2185587715609934223501.jpg" alt="Apache Airflow">
+            </div>
+            <div class="tool">
+                <img src="http://www.itshop.ru/productimages/auto/pimg_2019527_552.jpg" alt="Hadoop HDFS">
+            </div>
+            <div class="tool">
+                <img src="https://www.logo.wine/a/logo/Microsoft_Azure/Microsoft_Azure-Logo.wine.svg" alt="Bash">
+            </div>
+            <div class="tool">
+                <img src="https://cdn.cookielaw.org/logos/4a2cde9e-5f84-44b2-bdbb-6a93354d1c72/e1199e19-1935-49fa-a4e2-bf7f9d08cee6/783d7c83-af8c-4032-901b-b3ec48982078/dbt-logo.png" alt="dbt">
+            </div>
+            <div class="tool">
+                <img src="https://cdn.worldvectorlogo.com/logos/clickhouse.svg" alt="ClickHouse">
+            </div>
+            <div class="tool">
+                <img src="https://avatars.githubusercontent.com/u/2452804?s=200&v=4" alt="Mysql">
+            </div>
+            <div class="tool">
+                <img src="https://cdn.dribbble.com/users/261617/screenshots/3146111/media/b05d35956c0ff7e8284a193016248fef.png" alt="VW">
+            </div>
+            <div class="tool">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png" alt="Nagios">
+            </div>
+            <div class="tool">
+                <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" alt="Kubernetes">
+            </div>
+            <div class="tool">
+                <img src="https://avatars.githubusercontent.com/u/5429470?s=200&v=4" alt="Tool 4">
+            </div>
+            <div class="tool">
+                <img src="https://play-lh.googleusercontent.com/ouYRMbe6yFT06JVoIIDJUJEf1L7ftnUdo3K-yEha45Y9zDM57ocrITQZjQBPrCg2tQ=w480-h960-rw" alt="Bash">
+            </div>
+        </div>
+
+        <div class="awards">
+            <h2>Certifications, Honours and Achievements</h2>
+            <div class="award">
+                <li><a href="https://skillsoft.digitalbadges.skillsoft.com/947c6b4e-517f-4468-9786-655a516fe0a6">Fundamentals of Microsoft Azure and Secure Programming</a></li>
+            </div>
+            <div class="award">
+                <li><a href="https://moonshot.scaler.com/s/sl/HW9OhBTWht">Spark for DataScience<a></li>
+            </div>
+            <div class="award">
+                <li>CyberSecurity Meet in person with <a href="https://www.linkedin.com/in/micha2019/">Micha Weis</a> (CERT Israel Military)</li>
+            </div>
+            <div class="award">
+                <li>First Prize in Debugging (C/C++) at Inter-College fest associated with Anna University.</li>
+            </div>
+            <div class="award">
+                <li>First Prize in Paper Presentation at Inter-College fest associated with Anna University.</li>
+            </div>
+            <div class="award">
+                <li>Won the district-level versification competition among 250,000 students at the CBSE Youth Festival.</li>
+            </div>
+            <div class="award">
+                <li>Received Gold & Silver medals from HelpAge India for raising the highest funds since I was 10 years old. </li>
+            </div>
+            <div class="award">
+                <li>Thrilled to have completed a 15,000-foot skydive over Prague, an incredible honor and adventure.</li>
+            </div>
+            <div class="award">
+                <li>Completed two scuba dives in the Andaman & Nicobar Islands.</li>
+            </div>
+            <div class="award">
+                <li>Received commendation from Kapil Sibal, Minister of Human Resource Development, for successfully completing the inaugural batch of CCE.</li>
+            </div>
+        </div>
+
+
+        <br>
+        <h2>Experience</h2>
+        <div class="job-box">
+            <img src="https://asset.brandfetch.io/idVk-klZzr/idRIgEHF1c.jpeg" alt="Zscaler Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
+            <h3><a href="https://www.zscaler.com/" target="_blank">Senior Software Engineer</a></h3>
+            <h4>ZScaler | Banglore | May 2024 - Present</h4>
+            <ul>
+                <br>
+                <li>Built a real-time data streaming data flow on Azure using ADX and EventHubs via ARM</li>
+            </ul>
+        </div>
+
+        <div class="job-box">
+            <img src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/i8wnstshccnfyetcetbs" alt="Kayzen Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
+            <h3><a href="https://www.kayzen.io" target="_blank"> DevOps Engineer</a></h3>
+            <h4>Kayzen | Berlin & India | Aug 2019 - May 2024</h4>
+            <ul>
+                <br>
+                <li>Built E2E ML backend for retargeting users, driving in a median monthly revenue of <strong>30k$.</strong></li>
+                <li>Architected data lakes and data warehouses using technologies such as <strong>Hive, Spark, HDFS, ClickHouse, Iceberg, Delta,</strong> and <strong>Dremio.</strong></li>
+                <li>Optimized performance of large-scale <strong>Big Data ETL</strong> processes involving <strong>Spark, Kafka, ClickHouse, SQL, Hadoop,</strong> and <strong>Airflow.</strong></li>
+                <li>Developed frameworks for database operations, focusing on <strong>scalability, sharding, configuration, and migration</strong> tasks.</li>
+                <li>Implemented ML solutions for AB Testing, Loss Notification Analysis, Model Deployment & Validation, and Feature Pipelines, while also creating insightful dashboards.</li>
+                <li>Handled DevOps responsibilities, including debugging, monitoring, and maintaining on-premises servers across three data centers.</li>
+            </ul>
+        </div>
+        <div class="job-box">
+            <div class="job">
+                <img src="https://www.nokia.com/sites/default/files/2023-02/nokia-refreshed-logo-3_0.jpg?height=405&width=720" alt="Nokia Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
+                <h3><a href="https://www.nokia.com" target="_blank">R&D Software Engineer</a></h3>
+                <h4>Nokia, Bengaluru, India | On-Site | Aug 2018 - Aug 2019</h4>
+                <ul>
+                    <br>
+                    <li>[R&D] Secure integration of Schema Registry with Kafka.</li>
+                    <li>[Security] Development of scripts to generate SSL certificates for internal authentication on K8s clusters with 1k nodes.</li>
+                    <li>[BDD - Radish Framework] Performance testing Kafka integration with KSQL, KConnect, Schema Registry.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Publications</h2>
+        <div class="publication">
+            <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3511056" target="_blank">Temporal Resilience of Phishing Detection Models in Machine Learning</a></h3>
+            <h4>Proceedings of the 5th International Conference on Cyber Security & Privacy in Communication Networks (ICCS) 2019 | NIT, Kurukshetra, India</h4>
+            <p class="publication-date">Publication Date: 30 December 2019</p>
+            <p class="abstract">It is known that phishing URLs change intermittently, which causes models to become obsolete after a period of time. In this work we examine the efficiency of a phishing detection model in terms of model drift. That is given a trained phishing detection model, how long will the model maintain the performance.</p>
+        </div>
+
+        <p>I love to code and also to figure out ways to optimise jobs that deal with big data. I have strong interests in machine learning and data engineering, and have all the analytical and technical capabilities to learn things on the go.</p>
+
+
+
+        <p>I believe that software engineers are real superheroes, who can make the world a better place by manipulating electricity via coding.</p>
+        <p>I always look for ways to improve and learn new things, I have recently started contributing to open-source.</p>
+
+        <div class="current-projects">
+            <ul>
+                <li>🔭 Working on multiple projects, including data engineering, software development, and monitoring.</li>
+                <li>🌱 Learning to contribute to open source.</li>
+                <li>👯 Looking to collaborate on <a href="https://www.linkedin.com/pulse/how-we-automated-etl-workflows-apache-airflow-receive-arvind-abraham/">Apache Airflow</a>.</li>
+                <li>📫 How to reach me: <a href="mailto:arvindeybram@gmail.com">arvindeybram@gmail.com</a></li>
+                <li>😄 Pronouns: He/Him</li>
+                <li>⚡ Fun fact: Can do a handstand.</li>
+            </ul>
+        </div>
+        <p>Apart from work, I love watching Anime. </p>
+        <h4>My never-give-up attitude is my ninja way.</h4>
+    </div>
+</div>
 </body>
 </html>
 
