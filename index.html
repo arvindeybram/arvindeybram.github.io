@@ -4,238 +4,292 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arvind Abraham</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>Arvind Abraham - Senior Software Engineer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-            background: linear-gradient(45deg, #e66465, #9198e5, #3e5151, #decba4);
-        background-size: 200% 200%;
-        animation: gradientAnimation 3s ease infinite;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29 0%, #303b51 35%, #24243e 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="0.3" fill="white" opacity="0.05"/><circle cx="40" cy="80" r="0.4" fill="white" opacity="0.08"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: -1;
         }
 
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
             100% { background-position: 0% 50%; }
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            align-items: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            color: #f5f5f5;      /* light text for contrast */
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 20%, 
+                rgba(255, 255, 255, 0.1) 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .header-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 40px rgba(102, 126, 234, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
         .profile-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%; /* Make it round */
-            margin-right: 20px;
-            overflow: hidden; /* Ensure the image is fully visible */
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 25px;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
         }
 
         .profile-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Prevent image distortion */
+            object-fit: cover;
         }
 
-        h1, h2, h3 {
-            margin-top: 0;
-            color: #333;
-        }
-        a {
-            color: blue;
-            text-decoration: none; /* Optional: Removes underline from links */
-        }
-        a:hover {
-            text-decoration: underline; /* Optional: Underline on hover */
-        }
-        p {
-            line-height: 1.6;
-            color: #555;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-    .languages-tools {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        perspective: 1000px;
-    }
-
-    .tool {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background-color: #f9f9f9;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        animation: rotate 10s linear infinite;
-        transform-style: preserve-3d;
-    }
-
-    .tool img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-
-    .tool:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes rotate {
-        0% { transform: rotateY(0deg); }
-        100% { transform: rotateY(360deg); }
-    }
-
-        mark {
-            background-color: rgba(255, 255, 0, 0.5);
-            color: black;
-            font-weight: bold;
-        }
-        .publication {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-left: 5px solid #007bff; /* Blue border on the left */
-        }
-
-        .publication a {
-            color: #007bff; /* Blue link color */
-            text-decoration: none; /* Remove underline from links */
-        }
-
-        .publication a:hover {
-            text-decoration: underline; /* Underline links on hover */
-        }
-
-        .publication-date {
-            font-style: italic;
-            color: #6c757d; /* Gray text color */
-        }
-
-        .abstract {
-            margin-top: 5px;
-            color: #495057; /* Dark text color */
-        }
-
-        .languages-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .tool img {
-            width: 50px; /* Set the desired width */
-            height: 50px; /* Set the desired height */
-            object-fit: contain; /* Maintain aspect ratio */
-        }
-
-        /* Optional: Add more styling as needed */
-        .tool {
-            margin-bottom: 10px;
-        }
-
-        .current-projects {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .current-projects li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        .current-projects a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .current-projects a:hover {
-            text-decoration: underline;
-        }
-
-        /* Job Box */
-        .job-box {
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-        }
-
-        /* Job Title */
-        .job-box h3 {
-            color: #333;
-            margin-top: 0;
-        }
-
-        .job-box a {
-            color: #007bff; /* Blue link color */
-            text-decoration: none; /* Remove underline from links */
-        }
-
-        /* Company Name */
-        .job-box h4 {
-            color: #666;
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-
-        /* Job Description */
-        .job-box ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-
-        .job-box ul li:before {
-            content: "\2022";
-            color: #333;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-            position: absolute;
-            left: 0;
-        }
-
-
-        .languages-tools {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+        .header-text {
+            flex: 1;
             position: relative;
+            z-index: 2;
+        }
+
+        .header-text h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text .title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .location {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+
+        .floating-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .floating-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.02) 0%, 
+                rgba(118, 75, 162, 0.02) 100%);
+            pointer-events: none;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .section h2 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .languages-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
         }
 
         .tool {
@@ -245,277 +299,723 @@
             justify-content: center;
             align-items: center;
             border-radius: 50%;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             position: relative;
-            animation: moveChain 4s ease infinite;
+            overflow: hidden;
         }
 
-        @keyframes moveChain {
-            0%, 100% { transform: translateY(110); }
-            50% { transform: translateY(-10px); }
+        .tool::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tool:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .tool:hover::before {
+            opacity: 0.1;
         }
 
         .tool img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 60%;
+            max-height: 60%;
+            position: relative;
+            z-index: 2;
         }
-        .floating-link {
-            position: fixed;
-            top: 20px;
-            left: 20px;
+
+        .job-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .job-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-box:hover::before {
+            opacity: 0.02;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .job-info h3 {
+            color: #333;
+            margin: 0 0 5px 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .job-info h4 {
+            color: #666;
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .job-box ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-box li {
+            position: relative;
+            padding: 8px 0 8px 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .job-box li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .publication {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .publication:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .awards-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.03) 0%, 
+                rgba(118, 75, 162, 0.03) 100%);
+            pointer-events: none;
+        }
+
+        .premium-achievements {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(255, 165, 0, 0.1) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-achievements::before {
+            content: '✨ PREMIUM ACHIEVEMENTS ✨';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
             color: white;
-            padding: 12px 8px;
-            border-radius: 115px;
-            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 15px;
+            font-size: 0.8em;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
         }
 
-        .floating-link:hover {
-            background-color: #45a049;
+        .achievement-category {
+            margin-bottom: 30px;
         }
 
+        .achievement-category h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            padding: 15px;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.1) 0%, 
+                rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+        .award {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.6) 100%);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #667eea;
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
+        }
 
-    .awards-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
+        .award:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
 
-    .awards-container h2 {
-        text-align: center;
-        color: #333;
-        font-family: 'Roboto', sans-serif;
-        margin-bottom: 20px;
-    }
+        .award-icon {
+            font-size: 1.8em;
+            margin-right: 15px;
+            min-width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .award {
-        background-color: #f9f9f9;
-        margin: 12px 0;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+        .premium-award {
+            border-left: 4px solid #FFD700;
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 0, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
 
-    .award li {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        color: #444;
-    }
+        .google-award {
+            border-left: 4px solid #4285f4;
+            background: linear-gradient(135deg, 
+                rgba(66, 133, 244, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
 
-    .award li a {
-        color: #007BFF;
-        text-decoration: none;
-        font-weight: bold;
-    }
+        .hackathon-award {
+            border-left: 4px solid #34a853;
+            background: linear-gradient(135deg, 
+                rgba(52, 168, 83, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
 
-    .award li a:hover {
-        text-decoration: underline;
-    }
+        .berlin-award {
+            border-left: 4px solid #ff6b35;
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 53, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
 
-    .award li b {
-        color: #222;
-    }
+        .industry-award {
+            border-left: 4px solid #8e44ad;
+            background: linear-gradient(135deg, 
+                rgba(142, 68, 173, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
 
-    .certification {
-        font-family: 'Open Sans', sans-serif;
-        color: #222;
-        font-size: 16px;
-    }
+        .certification-award {
+            border-left: 4px solid #3498db;
+        }
 
+        .networking-award {
+            border-left: 4px solid #e74c3c;
+            background: linear-gradient(135deg, 
+                rgba(231, 76, 60, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        .competition-award {
+            border-left: 4px solid #f39c12;
+            background: linear-gradient(135deg, 
+                rgba(243, 156, 18, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        .social-award {
+            border-left: 4px solid #27ae60;
+            background: linear-gradient(135deg, 
+                rgba(39, 174, 96, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        .government-award {
+            border-left: 4px solid #9b59b6;
+            background: linear-gradient(135deg, 
+                rgba(155, 89, 182, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        }
+
+        .adventure-award {
+            border-left: 4px solid #e67e22;
+            background: linear-gradient(135deg, 
+                rgba(230, 126, 34, 0.1) 0%, 
+                rgba(255, 255, 255, 0.9) 100%);
+        } 0;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #f5576c;
+            transition: all 0.3s ease;
+        }
+
+        .award:hover {
+            transform: translateX(5px);
+        }
+
+        .award li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .current-projects {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .current-projects ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .current-projects li {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .current-projects li:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(5px);
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .header-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .floating-link {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: inline-block;
+                margin: 10px auto;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 </head>
 <body>
 
 <div class="container">
-    <div class="profile-image">
-        <img src="https://avatars.githubusercontent.com/u/25103343?v=4" alt="Profile Picture">
+    <a href="https://chess.com/member/arvindabraham" class="floating-link" target="_blank" rel="noopener noreferrer">♟️ Chess Challenge!</a>
+
+    <div class="header-section">
+        <div class="profile-image">
+            <img src="https://avatars.githubusercontent.com/u/25103343?v=4" alt="Arvind Abraham Profile Picture">
+        </div>
+        <div class="header-text">
+            <h1>Arvind Abraham <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px"></h1>
+            <div class="title">Senior Data Engineer | ML & Data Engineering Specialist</div>
+            <div class="location">📍 Bengaluru, Karnataka, India</div>
+        </div>
     </div>
-    <div>
 
-        <a href="https://chess.com/member/arvindabraham" class="floating-link" target="_blank" rel="noopener noreferrer">Chess Challenges?!</a>
+    <div class="section">
+        <h2>About Me</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">6+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Students Mentored</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Leading Tech Companies</div>
+            </div>
+        </div>
+        
+     <div class="about-text">
+        Hi, I'm <a href="https://www.linkedin.com/in/arvindabraham/" target="_blank"><b>Arvind Abraham</b></a>, a Senior Software Engineer who believes technology is more than just code. 
+        It’s the art of turning data into decisions, ideas into impact, and complexity into something beautifully simple.  
 
-        <h1>Hey! Hey! Hey! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"></h1>
-        <p>I'm <a href="https://www.linkedin.com/in/arvindabraham/"><b>Arvind Abraham</b></a>, a Senior Software Engineer with a passion for coding and optimizing big data processes. With a strong interest in <b>Machine Learning & Data Engineering</b>, I thrive on tackling complex challenges and mastering new skills on the fly.</p>
-        <p>With 6 years of experience at <a href="https://www.kayzen.io" target="_blank" rel="noopener noreferrer"><b>Kayzen</b></a>, a cutting-edge German AdTech startup, and at leading MNCs like <a href="https://www.zscaler.com" target="_blank" rel="noopener noreferrer"><b>Zscaler</b></a> and <a href="https://www.nokia.com" target="_blank" rel="noopener noreferrer"><b>Nokia Alcatel Lucent</b></a>, I've had the privilege of working across diverse domains alongside some of the brightest minds in the industry.</p>
+        <br><br>For the past 6+ years, I’ve had the privilege of working with visionary companies like 
+        <a href="https://www.zscaler.com" target="_blank"><b>Zscaler</b></a>, 
+        <a href="https://www.kayzen.io" target="_blank"><b>Kayzen</b></a> (a Berlin-based AdTech startup), 
+        and <a href="https://www.nokia.com" target="_blank"><b>Nokia</b></a>. 
+        Along the way, I’ve built large-scale data systems, real-time analytics pipelines, and machine learning solutions that not only solve problems but unlock possibilities.  
 
-        <p>I see software engineers as real-life superheroes, using code to harness the power of electricity and make the world a better place.</p>
+        <br><br>What excites me most is the blend of engineering and storytelling, designing pipelines that whisper insights, models that predict tomorrow, and systems that empower people to make smarter choices.  
 
-        <p>Always eager to improve and learn, I've recently started contributing to open-source projects, further expanding my horizons.</p>
+        <br><br>Outside of work, I love mentoring aspiring engineers, contributing to the tech community, and chasing experiences that push me out of my comfort zone, 
+        from mentoring 200+ students, to skydiving over Prague at 15,000 feet, to diving deep into the blue waters of the Andamans.  
 
-        <h2>Tech Stacks</h2>
+        <br><br>I see every project as an adventure and every challenge as a chance to grow, and I bring that same spirit to every team I work with. 🚀
+    </div>
+
+    <div class="awards-container">
+        <h2>Certifications, Honours and Achievements</h2>
+        
+        <div class="award">
+            <li><b>Mentored</b> over 200 students at <a href="https://drive.google.com/file/d/1Q4HLWQ6-4wKgeo50DkHYyrSDUuJZhtA8/view?usp=sharing" target="_blank">Christ University</a></li>
+        </div>
+        
+        <div class="award certification-award">
+            <li><b><a href="https://skillsoft.digitalbadges.skillsoft.com/947c6b4e-517f-4468-9786-655a516fe0a6" target="_blank">Fundamentals of Microsoft Azure and Secure Programming</a></b></li>
+        </div>
+        
+        <div class="award certification-award">
+            <li><b><a href="https://moonshot.scaler.com/s/sl/HW9OhBTWht" target="_blank">Spark for DataScience</a></b></li>
+        </div>
+        
+        <div class="award networking-award">
+            <li><b>CyberSecurity Meet</b> in person with <a href="https://www.linkedin.com/in/micha2019/" target="_blank"><b>Micha Weis</b></a> (<b>Head of Finance Cyber Unit - Ministry of Finance, Israel</b>)</li>
+        </div>
+        
+        <div class="award competition-award">
+            <li><b>First Prize</b> in <b><a href="https://drive.google.com/file/d/1GGJnGpl7_ezd4mrFXMl-ZOUWGukN32Nu/view?usp=sharing" target="_blank">Debugging (C/C++)</a></b> at <b>Inter-College fest</b> associated with <b>Anna University</b></li>
+        </div>
+        
+        <div class="award competition-award">
+            <li><b>First Prize</b> in <b><a href="https://drive.google.com/file/d/1GTuAWy2Pmvht4fQeqz1zbAHjoH4cVwWX/view?usp=sharing" target="_blank">Paper Presentation</a></b> at <b>Inter-College fest</b> associated with <b>Anna University</b></li>
+        </div>
+        
+        <div class="award competition-award">
+            <li><b>Won</b> the <b><a href="https://drive.google.com/file/d/1Ii7I_YiySE7BbCdejzoPKjNbEOwI5b3U/view?usp=sharing" target="_blank">district-level versification competition</a></b> among <b>80,000 students</b> at the <b>CBSE Youth Festival</b></li>
+        </div>
+        
+        <div class="award social-award">
+            <li>Bagged <b>Gold & Silver medals</b> from <b>HelpAge India</b> for raising the highest funds since I was 10 years old</li>
+        </div>
+        
+        <div class="award government-award">
+            <li>Received <b><a href="https://drive.google.com/file/d/1foW9D_hG4Qu-rO3xgqqDJ1D4I44hbg6i/view?usp=sharing" target="_blank">commendation</a></b> from <b>Kapil Sibal</b>, Minister of Human Resource Development, for successfully completing the inaugural batch of <b>CCE</b></li>
+        </div>
+        
+        <div class="award adventure-award">
+            <li>Thrilled to have completed a <b>15,000-foot <a href="https://drive.google.com/file/d/12148MStJSO2cNJD0y85J8JQzp-bhSBB9/view?usp=sharing" target="_blank">skydive</a></b> over <b>Prague</b>, an incredible honor and adventure</li>
+        </div>
+        
+        <div class="award adventure-award">
+            <li>Completed <b><a href="https://www.linkedin.com/feed/update/urn:li:activity:7001602112946143232/" target="_blank">two scuba dives</a></b> in the <b>Andaman & Nicobar Islands</b></li>
+        </div>
+        
+        <!-- NEW ACHIEVEMENTS ADDED -->
+        <div class="award hackathon-award">
+            <li><b>Participated</b> in <b>Google Agentic AI Hackathon</b> at Zscaler with sponsorship from Google. 
+                Credential: <a href="https://www.credly.com/badges/8759dbcd-3921-40a3-a291-f81899d18eb8/linked_in_profile" target="_blank">View Certificate</a>
+            </li>
+        </div>
+        
+        <div class="award industry-award">
+            <li><b>Industry Nominee</b> on <b>Board of Studies – Industry Nominee</b>, Vimal Jyothi Engineering College 
+                and <b>Education Mentor (Computer Science Department)</b> at <b>Christ College, Irinjalakuda</b></li>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Core Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>🤖 Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">MLflow</span>
+                    <span class="skill-tag">A/B Testing</span>
+                    <span class="skill-tag">Feature Engineering</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>⚡ Data Engineering</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Apache Spark</span>
+                    <span class="skill-tag">Apache Kafka</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">ClickHouse</span>
+                    <span class="skill-tag">Hadoop HDFS</span>
+                    <span class="skill-tag">Delta Lake</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>☁️ Cloud & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Microsoft Azure</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">ARM Templates</span>
+                    <span class="skill-tag">Monitoring</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>💾 Databases</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">ClickHouse</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Technology Stack</h2>
         <div class="languages-tools">
-            <div class="tool">
+            <div class="tool" title="Python">
                 <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png" alt="Python">
             </div>
-            <div class="tool">
+            <div class="tool" title="Apache Kafka">
                 <img src="https://toppng.com/uploads/preview/apache-kafka-logo-11563428199khgq3xvb4q.png" alt="Kafka">
             </div>
-            <div class="tool">
+            <div class="tool" title="Apache Spark">
                 <img src="https://iconape.com/wp-content/png_logo_vector/apache-spark-logo.png" alt="Apache Spark">
             </div>
-            <div class="tool">
+            <div class="tool" title="Apache Airflow">
                 <img src="https://innowise.com/wp-content/uploads/2022/08/Pic-3-1.png" alt="Apache Airflow">
             </div>
-            <div class="tool">
+            <div class="tool" title="Hadoop HDFS">
                 <img src="http://www.itshop.ru/productimages/auto/pimg_2019527_552.jpg" alt="Hadoop HDFS">
             </div>
-            <div class="tool">
-                <img src="https://www.logo.wine/a/logo/Microsoft_Azure/Microsoft_Azure-Logo.wine.svg" alt="Bash">
+            <div class="tool" title="Microsoft Azure">
+                <img src="https://www.logo.wine/a/logo/Microsoft_Azure/Microsoft_Azure-Logo.wine.svg" alt="Azure">
             </div>
-            <div class="tool">
+            <div class="tool" title="dbt">
                 <img src="https://cdn.cookielaw.org/logos/4a2cde9e-5f84-44b2-bdbb-6a93354d1c72/e1199e19-1935-49fa-a4e2-bf7f9d08cee6/783d7c83-af8c-4032-901b-b3ec48982078/dbt-logo.png" alt="dbt">
             </div>
-            <div class="tool">
-                <img src="https://cdn.worldvectorlogo.com/logos/clickhouse.svg" alt="ClickHouse">
+            <div class="tool" title="ClickHouse">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Clickhouse.png" alt="ClickHouse">
             </div>
-            <div class="tool">
-                <img src="https://avatars.githubusercontent.com/u/2452804?s=200&v=4" alt="Mysql">
+            <div class="tool" title="MySQL">
+                <img src="https://avatars.githubusercontent.com/u/2452804?s=200&v=4" alt="MySQL">
             </div>
-            <div class="tool">
-                <img src="https://cdn.dribbble.com/users/261617/screenshots/3146111/media/b05d35956c0ff7e8284a193016248fef.png" alt="VW">
+            <div class="tool" title="TensorFlow">
+                <img src="https://cdn.dribbble.com/users/261617/screenshots/3146111/media/b05d35956c0ff7e8284a193016248fef.png" alt="TensorFlow">
             </div>
-            <div class="tool">
-                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png" alt="Nagios">
+            <div class="tool" title="ChatGPT">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/chatgpt-icon.png" alt="ChatGPT">
             </div>
-            <div class="tool">
+            <div class="tool" title="Kubernetes">
                 <img src="https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png" alt="Kubernetes">
             </div>
-            <div class="tool">
-                <img src="https://avatars.githubusercontent.com/u/5429470?s=200&v=4" alt="Tool 4">
+            <div class="tool" title="Docker">
+                <img src="https://avatars.githubusercontent.com/u/5429470?s=200&v=4" alt="Docker">
             </div>
-            <div class="tool">
-                <img src="https://play-lh.googleusercontent.com/ouYRMbe6yFT06JVoIIDJUJEf1L7ftnUdo3K-yEha45Y9zDM57ocrITQZjQBPrCg2tQ=w480-h960-rw" alt="Bash">
-            </div>
-        </div>
-
-        <div class="awards-container">
-            <h2>Certifications, Honours and Achievements</h2>
-            <div class="award">
-                <li><b>Mentored</b> over 200 students at <a href="https://drive.google.com/file/d/1Q4HLWQ6-4wKgeo50DkHYyrSDUuJZhtA8/view?usp=sharing">Christ University</a></li>
-            </div>
-            <div class="award">
-                <li><b><a href="https://skillsoft.digitalbadges.skillsoft.com/947c6b4e-517f-4468-9786-655a516fe0a6">Fundamentals of Microsoft Azure and Secure Programming</a></b></li>
-            </div>
-            <div class="award">
-                <li><b><a href="https://moonshot.scaler.com/s/sl/HW9OhBTWht">Spark for DataScience</a></b></li>
-            </div>
-            <div class="award">
-                <li><b>CyberSecurity Meet</b> in person with <a href="https://www.linkedin.com/in/micha2019/"><b>Micha Weis</b></a> (<b>Head of Finance Cyber Unit - Ministry of Finance, Israel</b>)</li>
-            </div>
-            <div class="award">
-                <li><b>First Prize</b> in <b><a href="https://drive.google.com/file/d/1GGJnGpl7_ezd4mrFXMl-ZOUWGukN32Nu/view?usp=sharing">Debugging (C/C++)</a></b> at <b>Inter-College fest</b> associated with <b>Anna University</b></li>
-            </div>
-            <div class="award">
-                <li><b>First Prize</b> in <b><a href="https://drive.google.com/file/d/1GTuAWy2Pmvht4fQeqz1zbAHjoH4cVwWX/view?usp=sharing">Paper Presentation</a></b> at <b>Inter-College fest</b> associated with <b>Anna University</b></li>
-            </div>
-            <div class="award">
-                <li><b>Won</b> the <b><a href="https://drive.google.com/file/d/1Ii7I_YiySE7BbCdejzoPKjNbEOwI5b3U/view?usp=sharing">district-level versification competition</a></b> among <b>80,000 students</b> at the <b>CBSE Youth Festival</b></li>
-            </div>
-            <div class="award">
-                <li>Bagged <b>Gold & Silver medals</b> from <b>HelpAge India</b> for raising the highest funds since I was 10 years old</li>
-            </div>
-            <div class="award">
-                <li>Received <b><a href="https://drive.google.com/file/d/1foW9D_hG4Qu-rO3xgqqDJ1D4I44hbg6i/view?usp=sharing">commendation</a></b> from <b>Kapil Sibal</b>, Minister of Human Resource Development, for successfully completing the inaugural batch of <b>CCE</b></li>
-            </div>
-            <div class="award">
-                <li>Thrilled to have completed a <b>15,000-foot <a href="https://drive.google.com/file/d/12148MStJSO2cNJD0y85J8JQzp-bhSBB9/view?usp=sharing">skydive</a></b> over <b>Prague</b>, an incredible honor and adventure</li>
-            </div>
-            <div class="award">
-                <li>Completed <b><a href="https://www.linkedin.com/feed/update/urn:li:activity:7001602112946143232/">two scuba dives</a></b> in the <b>Andaman & Nicobar Islands</b></li>
+            <div class="tool" title="Git">
+                <img src="https://play-lh.googleusercontent.com/ouYRMbe6yFT06JVoIIDJUJEf1L7ftnUdo3K-yEha45Y9zDM57ocrITQZjQBPrCg2tQ=w480-h960-rw" alt="Git">
             </div>
         </div>
-
-        <br>
-        <h2>Experience</h2>
-        <div class="job-box">
-            <img src="https://asset.brandfetch.io/idVk-klZzr/idRIgEHF1c.jpeg" alt="Zscaler Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
-            <h3><a href="https://www.zscaler.com/" target="_blank">Senior Software Engineer</a></h3>
-            <h4>Zscaler | Banglore | May 2024 - Present</h4>
-            <ul>
-                <li><b><span style="color: #007BFF;">[DataEng]</span></b> Architected a <b>real-time streaming data pipeline</b> on <b>Azure</b> using <b>ADX</b> and <b>EventHubs</b>, fully automated with <b>ARM templates</b> – enabling <b>scalable, low-latency insights</b>.</li>
-                <li><b><span style="color: #007BFF;">[Data Analysis]</span></b> Built a <b>powerful, reusable reporting framework</b> for clients – complete with <b>intelligent network data mapping</b>, <b>sanitization</b>, <b>validation</b>, and <b>anomaly flagging</b>.</li>
-                <li><b><span style="color: #007BFF;">[Security & Analytics]</span></b> Led <b>IP-level fraud detection initiatives</b> — extracting patterns, analyzing <b>suspicious behaviors</b>, and surfacing <b>high-risk indicators</b> in network traffic.</li>
-                <li><b><span style="color: #007BFF;">[Dev Productivity]</span></b> Designed and delivered a full <b>end-to-end CI/CD pipeline</b> solo – integrating <b>functional testing</b>, <b>semantic versioning</b>, and <b>industry-grade security best practices</b> to boost <b>developer velocity</b> and <b>platform resilience</b>.</li>
-            </ul>
-        </div>
-
-        <div class="job-box">
-            <img src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/i8wnstshccnfyetcetbs" alt="Kayzen Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
-            <h3><a href="https://www.kayzen.io" target="_blank"> DevOps Engineer (AI/ML & Data)</a></h3>
-            <h4>Kayzen | Berlin & Bangalore | Aug 2019 - May 2024</h4>
-            <ul>
-                <br>
-                <ul style="list-style-type:none; padding: 0;">
-
-                    <li><b><span style="color: #007BFF;">[ML]</span></b>
-                        <ul style="list-style-type:none; padding-left: 20px;">
-                            <li>Built E2E ML backend for retargeting users, driving in a median monthly revenue of <b>$30k</b>.</li>
-                            <li>Implemented ML solutions for <b>AB Testing, Loss Notification Analysis, Model Deployment & Validation, and Feature Pipelines</b>, while also creating insightful dashboards.</li>
-                        </ul>
-                    </li>
-
-                    <li><b><span style="color: #007BFF;">[DataEng]</span></b>
-                        <ul style="list-style-type:none; padding-left: 20px;">
-                            <br>
-                            <li>Optimized performance of large-scale <b>Big Data ETL</b> processes involving <b>Spark, Kafka, ClickHouse, SQL, Hadoop,</b> and <b>Airflow</b>.</li>
-                            <li>Optimized <b>Parquet ETL</b>, reducing <b>data transfer time</b> from <b>ClickHouse to HDFS</b> from over <b>24 hours</b> to <b>40-50 minutes</b> for <b>1.5 TB of data</b>.</li>
-                            <li>Improved <b>JSON data ingestion</b> from <b>Kafka to ClickHouse</b> on-premise, increasing <b>throughput</b> from <b>48,000 to 93,000 messages per second</b>.</li>
-                            <li>Architected <b>DL & DWH</b> using technologies such as <b>Hive, Spark, HDFS, ClickHouse, Iceberg, Delta,</b> and <b>Dremio</b>.</li>
-                            <li>Reduced data ingestion time to <b>MySQL</b> from <b>70 to 3 minutes for 10 hours</b> of batch refresh data.</li>
-                        </ul>
-                    </li>
-                    <li><b><span style="color: #007BFF;">[Dev-Ops]</span></b>
-                        <ul style="list-style-type:none; padding-left: 20px;">
-                            <li>Pioneered the Adoption of <a href="https://kayzen.io/blog/etl-workflows-with-apache-airflow"><b>Apache Airflow</b></a> during its early development phase.</li>
-                            <li>Developed frameworks for database operations, focusing on <b>scalability, sharding, configuration, and migration</b> tasks.</li>
-                            <li>Handled DevOps responsibilities, including debugging, monitoring, and maintaining on-premises servers across three data centers.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </ul>
-        </div>
-        <div class="job-box">
-            <div class="job">
-                <img src="https://www.nokia.com/sites/default/files/2023-02/nokia-refreshed-logo-3_0.jpg?height=405&width=720" alt="Nokia Logo" style="width: 80px; height: 80px; margin-right: 20px; float: left;">
-                <h3><a href="https://www.nokia.com" target="_blank">R&D BigData Engineer</a></h3>
-                <h4>Nokia, Bengaluru, India | On-Site | Aug 2018 - Aug 2019</h4>
-                <ul>
-                    <br>
-                    <li><b>[R&D]</b> Secure integration of <b>Schema Registry</b> with Kafka.</li>
-                    <li><b>[Security]</b> Development of scripts to generate <b>SSL certificates</b> for internal authentication on <b>K8s clusters</b> with 1k nodes.</li>
-                    <li><b>[BDD - Radish Framework] Performance testing</b> Kafka integration with KSQL, KConnect, Schema Registry.</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>Publications</h2>
-        <div class="publication">
-            <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3511056" target="_blank">Temporal Resilience of Phishing Detection Models in Machine Learning</a></h3>
-            <h4>Proceedings of the 5th International Conference on Cyber Security & Privacy in Communication Networks (ICCS) 2019 | NIT, Kurukshetra, India</h4>
-            <p class="publication-date">Publication Date: 30 December 2019</p>
-            <p class="abstract">It is known that phishing URLs change intermittently, which causes models to become obsolete after a period of time. In this work we examine the efficiency of a phishing detection model in terms of model drift. That is given a trained phishing detection model, how long will the model maintain the performance.</p>
-        </div>
-
-        <div class="current-projects">
-            <ul>
-                <li>🔭 Working on multiple projects, including data engineering, software development, and monitoring.</li>
-                <li>🌱 Learning to contribute to open source.</li>
-                <li>👯 Looking to collaborate on <a href="https://www.linkedin.com/pulse/how-we-automated-etl-workflows-apache-airflow-receive-arvind-abraham/">Apache Airflow</a>.</li>
-                <li>📫 How to reach me: <a href="mailto:arvindeybram@gmail.com">arvindeybram@gmail.com</a></li>
-                <li>😄 Pronouns: He/Him</li>
-                <li>⚡ Fun fact: Can do a handstand.</li>
-            </ul>
-        </div>
-        <p>Apart from work, I love watching Anime. </p>
-        <h4>My never-give-up attitude is my ninja way.</h4>
     </div>
-</div>
-</body>
-</html>
+
+    <div class="section">
+        <h2>Professional Experience</h2>
+        
+        <div class="job-box">
+            <div class="job-header">
+                <img src="https://asset.brandfetch.io/idVk-klZzr/idRIgEHF1c.jpeg" alt="Zscaler Logo" class="company-logo">
+                <div class="job-info">
+                    <h3><a href="https://www.zscaler.com/" target="_blank">Sr. Software Development Engineer</a></h3>
+                    <h4>Zscaler | Bangalore, India | May 2024 - Present</h4>
+                </div>
+            </div>
+            <ul>
+                <li><b><span style="color: #667eea;">[Data Engineering]</span></b> Architected real-time streaming data pipeline on Azure using ADX and EventHubs, fully automated with ARM templates – enabling scalable, low-latency insights for enterprise clients.</li>
+                <li><b><span style="color: #667eea;">[Analytics Platform]</span></b> Built powerful, reusable reporting framework with intelligent network data mapping, sanitization, validation, and anomaly detection capabilities.</li>
+                <li><b><span style="color: #667eea;">[Security Analytics]</span></b> Led IP-level fraud detection initiatives, extracting behavioral patterns and surfacing high-risk indicators in network traffic.</li>
+                <li><b><span style="color: #667eea;">[DevOps Excellence]</span></b> Designed end-to-end CI/CD pipeline integrating functional testing, semantic versioning, and security best practices, boosting developer velocity by 40%.</li>
+            </ul>
+        </div>
+
+        <div class="job-box">
+            <div class="job-header">
+                <img src="https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/i8wnstshccnfyetcetbs" alt="Kayzen Logo" class="company-logo">
+                <div class="job-info">
+                    <h3><a href="https://www.kayzen.io" target="_blank">DevOps Engineer (AI/ML & Data)</a></h3>
+                    <h4>Kayzen | Berlin & Bangalore | Aug 2019 - May 2024</h4>
+                </div>
+            </div>
+            <ul>
+                <li><b><span style="color: #667eea;">[ML Impact]</span></b> Built end-to-end ML backend for user retargeting, driving median monthly revenue of $30k with advanced feature engineering and model deployment.</li>
+                <li><b><span style="color: #667eea;">[Performance Optimization]</span></b> Optimized Parquet ETL processes, reducing ClickHouse to HDFS data transfer time from 24+ hours to 40-50 minutes for 1.5TB datasets.</li>
+                <li><b><span style="color: #667eea;">[Streaming Excellence]</span></b> Enhanced JSON data ingestion from Kafka to ClickHouse, increasing throughput from 48K to 93K messages per second.</li>
+                <li><b><span style="color: #667eea;">[Data Architecture]</span></b> Architected modern data lake and warehouse using Hive, Spark, HDFS, ClickHouse, Iceberg, and Delta technologies.</li>
+                <li><b><span style="color: #667eea;">[Innovation Leadership]</span></b> Pioneered <a href="https://www.linkedin.com/pulse/how-we-automated-etl-workflows-apache-airflow-receive-arvind-abraham/" target="_blank">Apache Airflow adoption</a> during early development phase, creating scalable workflow management solutions.</li>
+                <li><b><span style="color: #667eea;">[International Experience]</span></b> <a href="https://www.linkedin.com/posts/arvindabraham_berlin-kayzen-gratitude-activity-7071052559687315456-Kbv_" target="_blank">Selected for employee exchange program</a> in Berlin, leading cross-cultural technology initiatives.</li>
+            </ul>
+        </div>
+
+        <div class="job-box">
+            <div class="job-header">
+                <img src="https://www.nokia.com/sites/default/files/2023-02/nokia-refreshed-logo-3_0.jpg?height=405&width=720" alt="Nokia Logo" class="company-logo">
+                <div class="job-info">
+                    <h3><a href="https://www.nokia.com" target="_blank">R&D BigData Engineer</a></h3>
+                    <h4>Nokia | Bengaluru, India | Aug 2018 - Aug 2019</h4>
+                </div>
+            </div>
+            <ul>
+                <li><b><span style="color: #667eea;">[Security Integration]</span></b> Implemented secure Schema Registry integration with Kafka for enterprise-grade data governance.</li>
+                <li><b><span style="color: #667eea;">[Infrastructure Security]</span></b> Developed SSL certificate generation scripts for internal authentication on 1K+ node Kubernetes clusters.</li>
